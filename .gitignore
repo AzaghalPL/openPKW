@@ -1,0 +1,10 @@
+*.pyc
+/bin
+/include
+/lib
+/obwody/migrations
+/local
+*.json
+db.sqlite3
+/static/admin
+/static/debug_toolbar

@@ -1,0 +1,39 @@
+<html>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+{% load staticfiles %}
+<head>
+	<title>Lista komisji</title>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="{% static 'js/komisje.js' %}"></script>
+	<script src="{% static 'js/jquery.hoverIntent.minified.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/komisje.css' %}">
+</head>
+<body>
+	<a href=".">&lt;&lt; Powrót do wyboru obszaru</a>
+	{% if messages %}
+		<ul class="messages">
+    		{% for message in messages %}
+    			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    		{% endfor %}
+		</ul>
+	{% endif %}
+	<input type="hidden" name="parent_id" value="{{ parent_id }}">
+	<input type="hidden" name="powiat" value="{{ powiat }}">
+	<table id="komisje">
+		<tr class="table_header">
+			<td>Nazwa komisji</td>
+			<td>Liczba wydanych kart</td>
+			<td>Uprawnionych do głosowania</td>
+		</tr>
+	{% for obwod in obwody %}
+		<tr id="{{ obwod.id }}">
+			<td class="name">{{ obwod.name }}</td>
+			<td class="cards">{{ obwod.cards }}</td>
+			<td class="population">{{ obwod.population }}</td>
+			<td class="buttons"></td>
+		</tr>
+	{% endfor %}
+	</table>
+	<div id="errors"><a id="errors_clear">Czyść</a><ul id="errors_list"></ul></div>
+></body>
+</html>

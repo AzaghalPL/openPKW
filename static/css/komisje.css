@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+table#komisje {
+	border-spacing: 0px;
+}
+
+td {
+	height: 2.5em;
+	max-width: 150px;
+	padding: 0.3em;
+}
+
+td.invalid {
+	border: 1px dotted #ee3333;
+}
+
+td.buttons {
+	padding: 0;
+}
+
+td.name {
+	max-width: 350px;
+}
+
+td.cards, td.population {
+	text-align: right;
+}
+
+td.buttons {
+	text-align: left;
+}
+
+tr.table_header td {
+	background-color: #444444;
+	color: white;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+tr:not(.table_header):hover td:not(.buttons) {
+	background-color: #e7e7ff;
+}
+
+a {
+	text-decoration: none;
+	font-family: sans-serif;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+td.buttons {
+	padding-left: 1em;
+	font-weight: bold;
+	font-size: 80%;
+}
+
+a.save {
+	color: #55aa55;
+}
+
+a.cancel {
+	color: #aa5555;
+}
+
+a.cancel:hover {
+	text-decoration: line-through;
+}
+
+a.edit {
+	color: #5555aa;
+	font-style: none;
+}
+
+input {
+	width: 100%;
+	text-align: right;
+}
+
+#errors {
+    position: fixed;
+    background-color: #ffffff;
+    min-height: 80px;
+    width: 80%;
+    left: 50%;
+    bottom : 15px;
+    margin-left: -40%;
+    padding: 1em;
+    border: 1px solid #444444;
+}

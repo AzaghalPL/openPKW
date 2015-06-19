@@ -1,0 +1,38 @@
+<html>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<head>
+	<title>Wybór jednostki</title>
+</head>
+<body>
+<form action="." method="POST">
+	{% csrf_token %}
+	<table name="formularz">
+	<tr><td><label for="wojewodztwo_id">Województwo:</label></td>
+	<td><select name="wojewodztwo_id" {% if wojewodztwo_id %}readonly{% endif %}>
+	{% for wojewodztwo in wojewodztwa %}
+		<option value="{{ wojewodztwo.id }}" {% ifequal wojewodztwo.id wojewodztwo_id %}selected="selected"{% else %}
+		{% if wojewodztwo_id %}disabled="disabled"{% endif %}{% endifequal %}>{{ wojewodztwo.name }}</option>
+	{% endfor %}
+	</select></td></tr>
+	{% if wojewodztwo_id %}
+		<tr><td><label for="powiat_id">Powiat:</label></td>
+		<td><select name="powiat_id" {% if powiat_id %}readonly{% endif %}>
+		{% for powiat in powiaty %}
+			<option value="{{ powiat.id }}" {% ifequal powiat.id powiat_id %}selected="selected"{% else %}
+			{% if powiat_id %}disabled="disabled"{% endif %}{% endifequal %}>{{ powiat.name }}</option>
+		{% endfor %}
+		</select></td></tr>
+		{% if powiat_id %}
+			<tr><td><label for="gmina_id">Gmina:</label></td>
+			<td><select name="gmina_id">
+			{% for gmina in gminy %}
+				<option value="{{ gmina.id }}">{{ gmina.name }}</option>
+			{% endfor %}
+			</select></td></tr>
+		{% endif %}
+	{% endif %}
+	</table>
+	<input type="submit" id="submit" value="Wybierz">
+</form>
+</body>
+</html>
